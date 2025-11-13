@@ -12,8 +12,7 @@ const routes: RouteRecordRaw[] = [
   {
     path: '/',
     name: 'Home',
-    component: () => import('@/views/HomeView.vue'),
-    meta: { requiresAuth: true }
+    component: () => import('@/views/HomeView.vue')
   },
   {
     path: '/login',
@@ -25,19 +24,19 @@ const routes: RouteRecordRaw[] = [
     path: '/forms',
     name: 'FormsList',
     component: () => import('@/views/forms/FormsListView.vue'),
-    meta: { requiresAuth: true }
+    meta: { requiresAuth: false }
   },
   {
     path: '/forms/create',
     name: 'FormCreate',
     component: () => import('@/views/forms/FormEditorView.vue'),
-    meta: { requiresAuth: true }
+    meta: { requiresAuth: false }
   },
   {
     path: '/forms/:id',
     name: 'FormEdit',
     component: () => import('@/views/forms/FormEditorView.vue'),
-    meta: { requiresAuth: true },
+    meta: { requiresAuth: false },
     props: true
   },
   {
@@ -50,7 +49,7 @@ const routes: RouteRecordRaw[] = [
     path: '/submissions',
     name: 'SubmissionsList',
     component: () => import('@/views/submissions/SubmissionsListView.vue'),
-    meta: { requiresAuth: true }
+    meta: { requiresAuth: false }
   },
   {
     path: '/:pathMatch(.*)*',

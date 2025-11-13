@@ -50,6 +50,23 @@ export const useAuthStore = defineStore('auth', () => {
     returnUrl.value = url
   }
 
+  // Initialize the auth store
+  async function initialize() {
+    if (token.value) {
+      try {
+        // Try to fetch current user if we have a token
+        // This is a placeholder - replace with your actual user fetch logic
+        // const response = await fetchUser()
+        // user.value = response.user
+      } catch (error) {
+        console.error('Failed to initialize auth store:', error)
+        // Clear invalid token
+        token.value = null
+        localStorage.removeItem('auth_token')
+      }
+    }
+  }
+
   return {
     user,
     token,
@@ -57,6 +74,7 @@ export const useAuthStore = defineStore('auth', () => {
     isAdmin,
     login,
     logout,
-    setReturnUrl
+    setReturnUrl,
+    initialize
   }
 })
